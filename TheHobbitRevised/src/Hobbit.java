@@ -14,6 +14,4 @@ public class Hobbit extends Traveler
 		ringObsessed = false;
 	}
 	
-	
-	
 }

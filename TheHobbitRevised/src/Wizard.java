@@ -14,16 +14,17 @@ public class Wizard extends Traveler
 	
 	public Wizard(String name, String color)
 	{
-	
+		super(name);
+		this.color = color;
 	}
 	
 	public void travel(int miles)
 	{
-		
+		super.travel(miles*3);
 	}
 	
 	public String getName()
 	{
-		
+		return super.getName() + " the " + color;
 	}
 }
