@@ -81,6 +81,6 @@ public class ThereAndBackAgain
 			travMessage += trav.getName() + " has traveled " + trav.getDistanceTraveled() + " miles\n";
 		}
 		
-		return travMessage;
+		return travMessage; 
 	}
 }
