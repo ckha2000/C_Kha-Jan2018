@@ -6,9 +6,9 @@ public class ThereAndBackAgain
 	public static void main(String[] args) 
 	{
 		
-		Traveler frodo = new Hobbit("Frodo");
-		Traveler sam = new Hobbit("Sam");
-		Traveler gimli = new Dwarf("Gimli");
+		Hobbit frodo = new Hobbit("Frodo");
+		Hobbit sam = new Hobbit("Sam");
+		Dwarf gimli = new Dwarf("Gimli");
 		
 		// Create a traveling party called party1 by creating an array of Travelers 
 		// and filling it with frodo, sam, and gimli
@@ -26,8 +26,7 @@ public class ThereAndBackAgain
 			t.travel(50);
 			System.out.println(t.getName() + " has traveled " + t.getDistanceTraveled() + " miles.");
 		}
-		
-		//allTravel(party1, 50);
+	
 		
 		
 		System.out.println();
@@ -61,7 +60,7 @@ public class ThereAndBackAgain
 		party.add(new Wizard("Gandalf", "Grey"));
 		
 		for(int i = 0; i < dwarfNames.length; i++){
-			party.add(new Traveler(dwarfNames[i]));
+			party.add(new Dwarf(dwarfNames[i]));
 		}
 	}
 	
@@ -77,9 +76,9 @@ public class ThereAndBackAgain
 	public static String allTravel(ArrayList<Traveler> party, int miles)
 	{
 		String travMessage = "";
-		for(Traveler t: party) {
-			t.travel(50);
-			travMessage += t.getName() + " has traveled " + t.getDistanceTraveled() + " miles.\n";
+		for(Traveler trav: party) {
+			trav.travel(50);
+			travMessage += trav.getName() + " has traveled " + trav.getDistanceTraveled() + " miles.\n";
 		}
 		
 		return travMessage;
