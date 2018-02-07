@@ -78,7 +78,7 @@ public class ThereAndBackAgain
 		String travMessage = "";
 		for(Traveler trav: party) {
 			trav.travel(50);
-			travMessage += trav.getName() + " has traveled " + trav.getDistanceTraveled() + " miles.\n";
+			travMessage += trav.getName() + " has traveled " + trav.getDistanceTraveled() + " miles\n";
 		}
 		
 		return travMessage;
