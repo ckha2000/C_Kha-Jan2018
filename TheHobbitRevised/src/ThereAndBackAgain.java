@@ -1,3 +1,7 @@
+//Christopher Kha
+//Period 2
+//2/9/18
+
 import java.util.ArrayList;
 
 public class ThereAndBackAgain 
@@ -77,7 +81,7 @@ public class ThereAndBackAgain
 	{
 		String travMessage = "";
 		for(Traveler trav: party) {
-			trav.travel(50);
+			trav.travel(miles);
 			travMessage += trav.getName() + " has traveled " + trav.getDistanceTraveled() + " miles\n";
 		}
 		
