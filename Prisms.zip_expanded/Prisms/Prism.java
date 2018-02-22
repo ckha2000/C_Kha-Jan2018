@@ -1,3 +1,7 @@
+//Christopher Kha
+//Period 2
+// 2/22/18
+
 /* Write this abstract class called Prism.  It has one private field (height) and a constructor.  
  * It contains the methods calcAreaOfBase, calcPerimeter, calcVolume, and calcSA.
  * None of these methods require parameters.   
@@ -22,11 +26,25 @@ public abstract class Prism
 	public abstract double calcPerimeter();
 	
 	public double calcVolume(){
-		return calcAreaOfBase()*height;
+		return round(calcAreaOfBase()*height);
 	}
 	
 	public double calcSA(){
-		return calcAreaOfBase()*2 + calcPerimeter()*height;
+		return round(calcAreaOfBase()*2 + calcPerimeter()*height);
+	}
+	
+	public static double round(double orig){
+		double result = 0.0;
+		
+		int tempInt = (int) (orig * 1000);
+		
+		int roundNum = tempInt % 10;	//takes the digit in the 3rd decimal place of the original number
+		tempInt = tempInt/10;				
+		if(roundNum >=5 && tempInt > 0) { //positive
+			tempInt++;
+		}
+		result = tempInt/100.0;
+		return result;
 	}
 }
 	

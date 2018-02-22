@@ -1,3 +1,7 @@
+//Christopher Kha
+//Period 2
+// 2/22/18
+
 /* Write this concrete (non-abstract) class called TriangularPrism.  
  * It has 3 private fields (sideA, sideB, and sideC).
  * It inherits its height from its superclass, Prism (because all prisms have a height).
@@ -10,10 +14,25 @@
  */
 
 
-public class TriangularPrism 
+public class TriangularPrism extends Prism
 {
+	private double sideA;
+	private double sideB;
+	private double sideC;
 	
+	public TriangularPrism(double sideA, double sideB, double sideC, double height) {
+		super(height);
+		this.sideA = sideA;
+		this.sideB = sideB;
+		this.sideC = sideC;
+	}
 	
+	public double calcPerimeter() {
+		return sideA + sideB + sideC;
+	}
 	
-	
+	public double calcAreaOfBase() {
+		double s = calcPerimeter() *.5;
+		return Math.sqrt(s*(s-sideA)*(s-sideB)*(s-sideC));
+	}
 }
