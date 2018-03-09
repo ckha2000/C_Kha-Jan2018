@@ -10,8 +10,20 @@ public class TextExcel
 	public static void main(String[] args)
 	{
 	    Scanner userInput = new Scanner(System.in);
+	    Spreadsheet userSheet = new Spreadsheet();
+	    
 	    boolean isRunning = true;
 	    
+	    while(isRunning) {
+	    	String command = userInput.nextLine();
+	    	if(command.toLowerCase().equals("quit")) {
+	    		isRunning = false;
+	    	} else {
+	    		System.out.println(userSheet.processCommand(command));
+	    	}
+	    	
+	    }
 	    
+	    userInput.close();
 	}
 }
