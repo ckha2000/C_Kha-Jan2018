@@ -4,10 +4,15 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
-	private EmptyCell[][] cellGrid; 
+	private Cell[][] cellGrid = new EmptyCell[getRows()][getCols()];
 	
 	public Spreadsheet() {
-		cellGrid = new EmptyCell[20][12];
+		for(int r = 0; r < getRows(); r++){
+			for(int c = 0; c < getCols(); c++){
+				cellGrid[r][c] = new EmptyCell();
+			}
+		}
+		
 	}
 	
 	@Override
@@ -39,7 +44,29 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		return null;
+		String gridString = "   ";
+		for(char i = 'A'; i < 'M'; i++){
+			gridString += "|" + i + "         ";
+		}
+		gridString += "|\n";
+		
+		for(int r = 0; r < getRows(); r++){
+			gridString += (r+1);
+			if(r < 9){
+				gridString += "  ";
+			}else{
+				gridString += " ";
+			}
+					
+			for(int c = 0; c < getCols(); c++){
+				gridString += "|" + cellGrid[r][c].abbreviatedCellText();
+			}
+			gridString += "|\n";
+			
+		}
+		
+		
+		return gridString;
 	}
 
 }

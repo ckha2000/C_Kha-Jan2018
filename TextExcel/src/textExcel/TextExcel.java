@@ -14,6 +14,8 @@ public class TextExcel
 	    
 	    boolean isRunning = true;
 	    
+	    System.out.println(userSheet.getGridText());
+	    
 	    while(isRunning) {
 	    	String command = userInput.nextLine();
 	    	if(command.toLowerCase().equals("quit")) {
@@ -21,7 +23,6 @@ public class TextExcel
 	    	} else {
 	    		System.out.println(userSheet.processCommand(command));
 	    	}
-	    	
 	    }
 	    
 	    userInput.close();

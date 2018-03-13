@@ -22,17 +22,9 @@ public class SpreadsheetLocation implements Location
     public SpreadsheetLocation(String cellName)
     {
         char columnChar = cellName.charAt(0);
-        char[] rowChar = new char[2];
-        if(cellName.length() > 2) {
-        	rowChar[0] = cellName.charAt(1);
-        	rowChar[1] = cellName.charAt(2);
-        }else {
-        	rowChar[0] = '0';
-        	rowChar[1] = cellName.charAt(1);
-        }
-       
+        String rowString = cellName.substring(1);
         
-        row = Character.getNumericValue(rowChar[0])*10 + Character.getNumericValue(rowChar[1]) - 1;
+        row = Integer.valueOf(rowString) - 1;
         column = Character.toUpperCase(columnChar) - 'A';
     }
 
