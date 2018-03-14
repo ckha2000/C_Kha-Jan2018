@@ -7,8 +7,7 @@ public class Spreadsheet implements Grid
 	private Cell[][] cellGrid = new Cell[getRows()][getCols()];
 	
 	public Spreadsheet() {
-		clearSheet();
-		
+		emptySheet();
 	}
 	
 	@Override
@@ -17,11 +16,11 @@ public class Spreadsheet implements Grid
 		String[] parsedCommand = command.split(" ");
 		Location loc;
 		
-		if(parsedCommand.length > 2 && command.contains("=")){		// <cell> = <value>
-			String[] c = command.split("=");
+		if(command.contains(" = ")){		// <cell> = <value>
+			String[] c = command.split(" = ");
 			
 			loc = new SpreadsheetLocation(c[0]);
-			cellGrid[loc.getRow()][loc.getCol()] = new TextCell(c[3].substring(1, c[3].length() - 1));
+			cellGrid[loc.getRow()][loc.getCol()] = new TextCell(c[1].replace("\"", ""));
 			return getGridText();		
 			
 		}else if(command.toLowerCase().contains("clear")){
@@ -32,11 +31,11 @@ public class Spreadsheet implements Grid
 				return getGridText();	
 				
 			}else{													// clear
-				clearSheet();
+				emptySheet();
 				return getGridText();	
-				
+			
 			}
-		}else if(command.trim().length() < 3){
+		}else if(command.trim().length() < 4){						// <cell>
 			loc = new SpreadsheetLocation(command.trim());
 			
 			return cellGrid[loc.getRow()][loc.getCol()].fullCellText();
@@ -44,12 +43,16 @@ public class Spreadsheet implements Grid
 		return "";
 	}
 
-	public void clearSheet(){
+	public void emptySheet(){
 		for(int r = 0; r < getRows(); r++){
 			for(int c = 0; c < getCols(); c++){
 				cellGrid[r][c] = new EmptyCell();
 			}
 		}
+	}
+	
+	public void assignCell(String input) {
+		
 	}
 	
 	@Override

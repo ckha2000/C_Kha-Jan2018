@@ -12,7 +12,7 @@ public class TextCell implements Cell {
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
 		if(text.length() > 10) {
-			return text.substring(0, 9);
+			return text.substring(0, 10);
 		} else {
 			String returnString = text;
 			for(int i = 0; i < (10 - text.length()); i++ ) {
