@@ -7,7 +7,7 @@ public class Spreadsheet implements Grid
 	private Cell[][] cellGrid = new Cell[getRows()][getCols()];
 	
 	public Spreadsheet() {
-		emptySheet();
+		makeEmptySheet();
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public class Spreadsheet implements Grid
 				return getGridText();	
 				
 			}else{													// clear
-				emptySheet();
+				makeEmptySheet();
 				return getGridText();	
 			
 			}
@@ -43,7 +43,7 @@ public class Spreadsheet implements Grid
 		return "";
 	}
 
-	public void emptySheet(){
+	public void makeEmptySheet(){
 		for(int r = 0; r < getRows(); r++){
 			for(int c = 0; c < getCols(); c++){
 				cellGrid[r][c] = new EmptyCell();
