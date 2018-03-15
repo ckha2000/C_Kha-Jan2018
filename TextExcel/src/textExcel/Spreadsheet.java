@@ -17,11 +17,10 @@ public class Spreadsheet implements Grid
 		Location loc;
 		
 		if(command.contains(" = ")){		// <cell> = <value>
-			String[] c = command.split(" = ");
-			
+			String[] c = command.split(" = ", 2);
 			loc = new SpreadsheetLocation(c[0]);
 			cellGrid[loc.getRow()][loc.getCol()] = new TextCell(c[1].replace("\"", ""));
-			return getGridText();		
+			return getGridText();	
 			
 		}else if(command.toLowerCase().contains("clear")){
 			if(parsedCommand.length > 1){							// clear <cell>
