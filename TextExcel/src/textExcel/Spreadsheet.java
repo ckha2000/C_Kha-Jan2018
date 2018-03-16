@@ -42,16 +42,13 @@ public class Spreadsheet implements Grid
 		return "";
 	}
 
+	//fills the grid with EmptyCells
 	public void makeEmptySheet(){
 		for(int r = 0; r < getRows(); r++){
 			for(int c = 0; c < getCols(); c++){
 				cellGrid[r][c] = new EmptyCell();
 			}
 		}
-	}
-	
-	public void assignCell(String input) {
-		
 	}
 	
 	@Override
@@ -97,7 +94,6 @@ public class Spreadsheet implements Grid
 			gridString += "|\n";
 			
 		}
-		
 		
 		return gridString;
 	}
