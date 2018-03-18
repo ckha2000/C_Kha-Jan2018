@@ -20,6 +20,7 @@ public class Spreadsheet implements Grid
 			String[] c = command.split(" = ", 2);
 			loc = new SpreadsheetLocation(c[0]);
 			cellGrid[loc.getRow()][loc.getCol()] = new TextCell(c[1].replace("\"", ""));
+			
 			return getGridText();	
 			
 		}else if(command.toLowerCase().contains("clear")){
