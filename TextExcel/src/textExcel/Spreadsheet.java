@@ -19,7 +19,11 @@ public class Spreadsheet implements Grid
 		if(command.contains(" = ")){		// <cell> = <value>
 			String[] c = command.split(" = ", 2);
 			loc = new SpreadsheetLocation(c[0]);
-			cellGrid[loc.getRow()][loc.getCol()] = new TextCell(c[1].replace("\"", ""));
+			
+			if(c[1].contains("\"")) {
+				cellGrid[loc.getRow()][loc.getCol()] = new TextCell(c[1].replace("\"", ""));
+			}else if(c[1].)
+			
 			
 			return getGridText();	
 			

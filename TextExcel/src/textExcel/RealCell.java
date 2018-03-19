@@ -7,6 +7,10 @@ public class RealCell implements Cell {
 		this.inputValue = inputValue;
 	}
 	
+	public String getInputValue() {
+		return inputValue;
+	}
+	
 	public double getDoubleValue() {
 		return 0.0;
 	}
@@ -14,13 +18,13 @@ public class RealCell implements Cell {
 	@Override
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
-		return null;
+		return ""+ getDoubleValue();
 	}
 
 	@Override
 	public String fullCellText() {
 		// TODO Auto-generated method stub
-		return null;
+		return inputValue;
 	}
 
 }
