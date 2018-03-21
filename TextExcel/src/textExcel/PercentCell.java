@@ -1,6 +1,6 @@
 package textExcel;
 
-public class PercentCell extends ValueCell {
+public class PercentCell extends RealCell{
 
 	public PercentCell(String inputValue) {
 		super(inputValue);
@@ -14,12 +14,15 @@ public class PercentCell extends ValueCell {
 	public String abbreviatedCellText() {
 		String truncatedValue = "" + (int) getDoubleValue();
 		if(truncatedValue.length() > 10) {
-			return truncatedValue.substring(0, 9) + "%";
+			return truncatedValue.substring(0, 10);
 		}else {
-			for(int i = 0; i < 9 - truncatedValue.length(); i++) {
+			truncatedValue += "%";
+			int tempLength = truncatedValue.length();
+			
+			for(int i = 0; i < 10 - tempLength; i++) {
 				truncatedValue += " ";
 			}
-			return truncatedValue + "%";
+			return truncatedValue;
 		}
 	}
 	

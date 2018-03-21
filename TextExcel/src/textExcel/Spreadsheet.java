@@ -20,10 +20,15 @@ public class Spreadsheet implements Grid
 			String[] c = command.split(" = ", 2);
 			loc = new SpreadsheetLocation(c[0]);
 			
-			if(c[1].contains("\"")) {
+			if(c[1].charAt(0) == '"') {
 				cellGrid[loc.getRow()][loc.getCol()] = new TextCell(c[1].replace("\"", ""));
-			}else if(c[1].)
-			
+			}else if(c[1].charAt(0) == '(') {
+				cellGrid[loc.getRow()][loc.getCol()] = new FormulaCell(c[1]);
+			}else if(c[1].contains("%")){
+				cellGrid[loc.getRow()][loc.getCol()] = new PercentCell(c[1]);
+			}else{
+				cellGrid[loc.getRow()][loc.getCol()] = new ValueCell(c[1]);
+			}
 			
 			return getGridText();	
 			

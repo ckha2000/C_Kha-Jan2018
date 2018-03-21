@@ -15,15 +15,20 @@ public class RealCell implements Cell {
 		return 0.0;
 	}
 	
-	@Override
 	public String abbreviatedCellText() {
-		// TODO Auto-generated method stub
-		return ""+ getDoubleValue();
+		String returnString = "" + getDoubleValue();
+		if(returnString.length() > 10) {
+			return returnString.substring(0, 10);
+		}else {
+			int tempLength = returnString.length();
+			for(int i = 0; i < 10 - tempLength; i++) {
+				returnString += " ";
+			}
+			return returnString;
+		}
 	}
 
-	@Override
 	public String fullCellText() {
-		// TODO Auto-generated method stub
 		return inputValue;
 	}
 
