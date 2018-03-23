@@ -7,19 +7,33 @@ public class FormulaCell extends RealCell {
 	}
 	
 	public double getDoubleValue() {
-		/*String[] splitInput = getInputValue().split(" ");
+		String tempInput = getInputValue().substring(1, getInputValue().length()-1).trim();
 		
-		double answer;
+		String[] splitInput = tempInput.split(" ");
+		
+		if(Character.isDigit(splitInput[0].indexOf(0))) {
+			double answer = Double.parseDouble(splitInput[0]);
+		}else { 	//the value is a cell
+			
+		}
+		
+		
 		
 		for(int i = 1; i < splitInput.length; i += 2) {
-			if(splitInput[i].equals("+") || splitInput[i].equals("-")) {
-	         	if()
-	        }else if(splitInput[i].equals("*") || splitInput[i].equals("/")) {
-	         	temp = op1.multiplication(op2, operator);
+			double nextOperand = Double.parseDouble(splitInput[i+1]);
+			
+			if(splitInput[i].equals("+")){
+				answer += nextOperand;
+			}else if(splitInput[i].equals("-")) {
+	         	answer -= nextOperand;
+	        }else if(splitInput[i].equals("*")){
+	        	answer *= nextOperand;
+	        }else if(splitInput[i].equals("/")) {
+	        	answer /= nextOperand;
 	        }
 		}
-		*/
-		return 0.0;
+		
+		return answer;
 	}
 	
 }
