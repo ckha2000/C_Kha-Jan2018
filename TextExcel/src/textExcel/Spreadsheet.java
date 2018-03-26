@@ -76,14 +76,12 @@ public class Spreadsheet implements Grid
 	@Override
 	public Cell getCell(Location loc)
 	{
-		// TODO Auto-generated method stub
 		return cellGrid[loc.getRow()][loc.getCol()];
 	}
 
 	@Override
 	public String getGridText()
 	{
-		// TODO Auto-generated method stub
 		String gridString = "   ";
 		for(char i = 'A'; i < 'M'; i++){
 			gridString += "|" + i + "         ";

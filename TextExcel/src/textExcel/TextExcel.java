@@ -7,10 +7,13 @@ import java.util.Scanner;
 
 public class TextExcel
 {
+	static Spreadsheet userSheet;
+	
 	public static void main(String[] args)
 	{
 	    Scanner userInput = new Scanner(System.in);
-	    Spreadsheet userSheet = new Spreadsheet();
+	    //Spreadsheet 
+	    userSheet = new Spreadsheet();
 	    
 	    boolean isRunning = true;
 	    
