@@ -23,7 +23,8 @@ public class FormulaCell extends RealCell {
 		for(int r = r1; r <= r2; r++) {
 			for(char c = c1; c <= c2; c++) {
 				Location loc = new SpreadsheetLocation("" + c + r);
-				sum += ((RealCell) (grid.getCell(loc))).getDoubleValue();
+				RealCell tempCell = (RealCell) (grid.getCell(loc));
+				sum += tempCell.getDoubleValue();
 				numValues++;
 			}
 		}
@@ -52,7 +53,8 @@ public class FormulaCell extends RealCell {
 			answer = Double.parseDouble(splitInput[0]);
 		}else {
 			loc = new SpreadsheetLocation(splitInput[0]);
-			answer = ((RealCell) (grid.getCell(loc))).getDoubleValue();
+			RealCell tempCell = (RealCell) grid.getCell(loc);
+			answer = tempCell.getDoubleValue();
 		}
 		
 		for(int i = 1; i < splitInput.length; i += 2) {
@@ -62,20 +64,19 @@ public class FormulaCell extends RealCell {
 				nextOperand = Double.parseDouble(splitInput[i+1]);
 			}else {
 				loc = new SpreadsheetLocation(splitInput[i+1]);
-				Cell tempCell = grid.getCell(loc);
-				nextOperand = ((RealCell) tempCell).getDoubleValue();
-			
-			
-				if(splitInput[i].equals("+")){
-					answer += nextOperand;
-				}else if(splitInput[i].equals("-")) {
-		         	answer -= nextOperand;
-		        }else if(splitInput[i].equals("*")){
-		        	answer *= nextOperand;
-		        }else if(splitInput[i].equals("/")) {
-		        	answer /= nextOperand;
-		        }
+				RealCell tempCell = (RealCell) grid.getCell(loc);
+				nextOperand = tempCell.getDoubleValue();
 			}
+			
+			if(splitInput[i].equals("+")){
+				answer += nextOperand;
+			}else if(splitInput[i].equals("-")) {
+	         	answer -= nextOperand;
+	        }else if(splitInput[i].equals("*")){
+	        	answer *= nextOperand;
+	        }else if(splitInput[i].equals("/")) {
+	        	answer /= nextOperand;
+	        }
 		}
 		return answer;
 	}
