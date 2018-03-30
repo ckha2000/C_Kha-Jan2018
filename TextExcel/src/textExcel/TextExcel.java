@@ -7,7 +7,11 @@ import java.util.Scanner;
 
 public class TextExcel
 {
-	static Spreadsheet userSheet;
+	private static Spreadsheet userSheet;
+	
+	public static Spreadsheet getSheet() {
+		return userSheet;
+	}
 	
 	public static void main(String[] args)
 	{

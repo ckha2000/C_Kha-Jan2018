@@ -5,7 +5,7 @@ public class FormulaCell extends RealCell {
 	
 	public FormulaCell(String inputValue) {
 		super(inputValue);
-		grid = TextExcel.userSheet;
+		grid = TextExcel.getSheet();
 	}
 
 	public double computeFormula(String range, boolean isAverage) {
