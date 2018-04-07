@@ -3,9 +3,9 @@ package textExcel;
 public class FormulaCell extends RealCell {
 	private Spreadsheet grid;
 	
-	public FormulaCell(String inputValue) {
+	public FormulaCell(String inputValue, Spreadsheet sheet) {
 		super(inputValue);
-		grid = TextExcel.getSheet();
+		grid = sheet;
 	}
 
 	public double computeFormula(String range, boolean isAverage) {
@@ -14,8 +14,8 @@ public class FormulaCell extends RealCell {
 		int r1 = Integer.parseInt(splitRange[0].substring(1));
 		int r2 = Integer.parseInt(splitRange[1].substring(1));
 
-		char c1 = splitRange[0].charAt(0);
-		char c2 = splitRange[1].charAt(0);
+		char c1 = Character.toUpperCase(splitRange[0].charAt(0));
+		char c2 = Character.toUpperCase(splitRange[1].charAt(0));
 
 		double sum = 0.0;
 		int numValues = 0;

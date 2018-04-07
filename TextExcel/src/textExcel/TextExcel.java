@@ -6,18 +6,11 @@ import java.util.Scanner;
 // Update this file with your own code.
 
 public class TextExcel
-{
-	private static Spreadsheet userSheet;
-	
-	public static Spreadsheet getSheet() {
-		return userSheet;
-	}
-	
+{	
 	public static void main(String[] args)
 	{
 	    Scanner userInput = new Scanner(System.in);
-	    //Spreadsheet 
-	    userSheet = new Spreadsheet();
+	    Spreadsheet userSheet = new Spreadsheet();
 	    
 	    boolean isRunning = true;
 	    
