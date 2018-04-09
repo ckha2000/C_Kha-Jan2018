@@ -1,6 +1,6 @@
 package textExcel;
 
-public class RealCell implements Cell {
+public class RealCell implements Cell, Comparable<RealCell> {
 	private String inputValue;
 	
 	public RealCell(String inputValue) {
@@ -30,6 +30,11 @@ public class RealCell implements Cell {
 
 	public String fullCellText() {
 		return inputValue;
+	}
+
+	
+	public int compareTo(RealCell arg0) {
+		return 0;
 	}
 
 }
