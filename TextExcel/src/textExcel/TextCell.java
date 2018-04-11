@@ -1,12 +1,11 @@
 package textExcel;
 
-public class TextCell implements Cell, Comparable<TextCell> {
+public class TextCell implements Cell {  		//Comparable<TextCell> - Checkpoint 6
 	private String text;
 	
 	public TextCell(String input) {
 		text = input;
 	}
-	
 	
 	public String getText() {
 		return text;
@@ -32,8 +31,9 @@ public class TextCell implements Cell, Comparable<TextCell> {
 	}
 
 	
+	//Checkpoint 6 
 	//returns -1 if this cell comes before, 0 if they are equal, 1 if this cell comes after
-	public int compareTo(TextCell compCell) {
+	/*public int compareTo(TextCell compCell) {
 		int compLength = text.length();
 		
 		if(this.text.length() > compCell.getText().length()) {
@@ -53,5 +53,5 @@ public class TextCell implements Cell, Comparable<TextCell> {
 		}
 		return 0;
 	}
-
+	*/
 }

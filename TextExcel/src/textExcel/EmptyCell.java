@@ -1,21 +1,24 @@
+//Christopher Kha	Period 2
+// 3/16/18
+// EmptyCell class
+
 package textExcel;
 
 public class EmptyCell implements Cell {
 	
+	//constructor for EmptyCell
 	public EmptyCell() {
 	}
 	
-	@Override
 	// text for spreadsheet cell display, must be exactly length 10
+	//always returns 10 spaces
 	public String abbreviatedCellText() {
-		// TODO Auto-generated method stub
 		return "          ";
 	}
 
-	@Override
 	// text for individual cell inspection, not truncated or padded
+	//always returns an empty string
 	public String fullCellText() {
-		// TODO Auto-generated method stub
 		return "";
 	}
 

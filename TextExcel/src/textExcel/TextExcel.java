@@ -1,3 +1,7 @@
+//Christopher Kha	Period 2
+// 3/16/18
+// Main method loop - handles user input
+
 package textExcel;
 
 import java.io.FileNotFoundException;

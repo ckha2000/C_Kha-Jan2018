@@ -1,6 +1,8 @@
+//Christopher Kha	Period 2
+// 3/16/18
 package textExcel;
 
-public class RealCell implements Cell, Comparable<RealCell> {
+public class RealCell implements Cell { 		// Comparable<RealCell> - Checkpoint 6
 	private String inputValue;
 	
 	public RealCell(String inputValue) {
@@ -33,8 +35,10 @@ public class RealCell implements Cell, Comparable<RealCell> {
 	}
 
 	
+	//Checkpoint 6
+	/*
 	public int compareTo(RealCell arg0) {
 		return 0;
 	}
-
+	*/
 }

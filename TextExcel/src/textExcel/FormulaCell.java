@@ -1,13 +1,18 @@
+//Christopher Kha	Period 2
+// 3/16/18
+//FormulaCell class - characterized by parentheses: ( formula )
 package textExcel;
 
 public class FormulaCell extends RealCell {
 	private Spreadsheet grid;
 	
+	//constructor for FormulaCell
 	public FormulaCell(String inputValue, Spreadsheet sheet) {
 		super(inputValue);
 		grid = sheet;
 	}
 
+	//code for computing sum or avg formulas - returns sum if isAverage is false and returns avg if isAverage is true
 	public double computeFormula(String range, boolean isAverage) {
 
 		String[] splitRange = range.split("-");
@@ -39,13 +44,15 @@ public class FormulaCell extends RealCell {
 		}
 	}
 
+	//computes the formula inside the parentheses 
 	public double getDoubleValue() {
 		String tempInput = getInputValue().substring(1, getInputValue().length()-1).trim();
 
 		String[] splitInput = tempInput.split(" ");
 		double answer = 0.0;
 		Location loc;
-
+		
+		//checks if the formula is sum or avg
 		if(splitInput[0].equalsIgnoreCase("sum")) {
 			return computeFormula(splitInput[1], false);
 		}else if(splitInput[0].equalsIgnoreCase("avg")) {
@@ -54,7 +61,7 @@ public class FormulaCell extends RealCell {
 
 		if(Character.isDigit(splitInput[0].charAt(0)) || splitInput[0].charAt(0) == '-') { // its a number
 			answer = Double.parseDouble(splitInput[0]);
-		}else {
+		}else {		//its a cell
 			loc = new SpreadsheetLocation(splitInput[0]);
 			if(grid.getCell(loc) instanceof RealCell) {
 				RealCell tempCell = ((RealCell) grid.getCell(loc));
