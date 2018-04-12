@@ -58,7 +58,9 @@ public class FormulaCell extends RealCell {
 		}else if(splitInput[0].equalsIgnoreCase("avg")) {
 			return computeFormula(splitInput[1], true);
 		}
-
+		
+		
+		//sets answer to equal the first term in the formula
 		if(Character.isDigit(splitInput[0].charAt(0)) || splitInput[0].charAt(0) == '-') { // its a number
 			answer = Double.parseDouble(splitInput[0]);
 		}else {		//its a cell
@@ -68,10 +70,12 @@ public class FormulaCell extends RealCell {
 				answer = tempCell.getDoubleValue();
 			}
 		}
-
+		
+		//loops through all of the operations and stores result in answer
 		for(int i = 1; i < splitInput.length; i += 2) {
 			double nextOperand;
-
+			
+			//checks if the next value is a cell
 			if(Character.isDigit(splitInput[i+1].charAt(0)) || splitInput[i+1].charAt(0) == '-') {
 				nextOperand = Double.parseDouble(splitInput[i+1]);
 			}else {

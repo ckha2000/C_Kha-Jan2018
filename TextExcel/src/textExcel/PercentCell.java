@@ -1,3 +1,7 @@
+//Christopher Kha	Period 2
+// 3/16/18
+// PercentCell - characterized by % sign at the end of a number
+
 package textExcel;
 
 public class PercentCell extends RealCell{
@@ -6,10 +10,12 @@ public class PercentCell extends RealCell{
 		super(inputValue);
 	}
 	
+	//stores just the percent value without the percent sign
 	public double getDoubleValue() {
 		String tempString = getInputValue().replaceAll("%", "");
 		return Double.parseDouble(tempString);
 	}
+	
 	
 	public String abbreviatedCellText() {
 		String truncatedValue = "" + (int) getDoubleValue();
