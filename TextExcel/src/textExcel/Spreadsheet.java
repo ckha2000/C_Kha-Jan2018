@@ -1,16 +1,19 @@
+//Christopher Kha	Period 2
+// 3/16/18
+// Spreadsheet class - stores a 2d array of Cells and handles userInput
 package textExcel;
-
-// Update this file with your own code.
 
 public class Spreadsheet implements Grid
 {
 	private Cell[][] cellGrid = new Cell[getRows()][getCols()];
 	
+	//constructor for Spreadsheet
 	public Spreadsheet() {
 		makeEmptySheet();
 	}
 	
-	@Override
+	//decides what action to take or what cell to make based on the user input - looks for assignment, clear, 
+	//clear cell and cell inspection
 	public String processCommand(String command)
 	{
 		String[] parsedCommand = command.split(" ");
@@ -61,29 +64,29 @@ public class Spreadsheet implements Grid
 		}
 	}
 	
-	@Override
+	//returns the number of rows in the spreadsheet
 	public int getRows()
 	{
 		return 20;
 	}
 
-	@Override
+	//returns the number of columns in the spreadsheet
 	public int getCols()
 	{
 		return 12;
 	}
 
-	@Override
+	//returns the cell at the given location
 	public Cell getCell(Location loc)
 	{
 		return cellGrid[loc.getRow()][loc.getCol()];
 	}
 
-	@Override
+	//returns the structured grid with all the values in the right place
 	public String getGridText()
 	{
 		String gridString = "   ";
-		for(char i = 'A'; i < 'M'; i++){
+		for(char i = 'A'; i < 'A' + getCols(); i++){
 			gridString += "|" + i + "         ";
 		}
 		gridString += "|\n";

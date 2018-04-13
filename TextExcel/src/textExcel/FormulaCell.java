@@ -46,7 +46,7 @@ public class FormulaCell extends RealCell {
 
 	//computes the formula inside the parentheses 
 	public double getDoubleValue() {
-		String tempInput = getInputValue().substring(1, getInputValue().length()-1).trim();
+		String tempInput = super.fullCellText().substring(1, super.fullCellText().length()-1).trim();
 
 		String[] splitInput = tempInput.split(" ");
 		double answer = 0.0;

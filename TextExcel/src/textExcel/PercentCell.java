@@ -6,17 +6,18 @@ package textExcel;
 
 public class PercentCell extends RealCell{
 
+	//constructor for PercentCell 
 	public PercentCell(String inputValue) {
 		super(inputValue);
 	}
 	
 	//stores just the percent value without the percent sign
 	public double getDoubleValue() {
-		String tempString = getInputValue().replaceAll("%", "");
+		String tempString = super.fullCellText().replaceAll("%", "");
 		return Double.parseDouble(tempString);
 	}
 	
-	
+	//returns the percent value with the % sign - pads and truncates as needed
 	public String abbreviatedCellText() {
 		String truncatedValue = "" + (int) getDoubleValue();
 		if(truncatedValue.length() > 10) {
@@ -32,6 +33,7 @@ public class PercentCell extends RealCell{
 		}
 	}
 	
+	//returns the value is a decimal
 	public String fullCellText() {
 		return "" + getDoubleValue()/100;
 	}

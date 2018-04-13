@@ -1,24 +1,27 @@
+//Christopher Kha	Period 2
+// 3/16/18
+// SpreadsheetLocation class - parses the cell name into the row and column number and stores the values
 package textExcel;
-
-//Update this file with your own code.
 
 public class SpreadsheetLocation implements Location
 {
+	//stored row and column
 	private int row;
 	private int column;
 	
-    @Override
+    //returns the row
     public int getRow()
     {
         return row;
     }
 
-    @Override
+    //returns the column
     public int getCol()
     {
         return column;
     }
     
+    // constructor of SpreadsheetLocation - parses the cell name
     public SpreadsheetLocation(String cellName)
     {
         char columnChar = cellName.charAt(0);

@@ -7,8 +7,6 @@ package textExcel;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-// Update this file with your own code.
-
 public class TextExcel
 {	
 	public static void main(String[] args)
@@ -18,6 +16,8 @@ public class TextExcel
 	    
 	    boolean isRunning = true;
 	    
+	    //checks for the user to type quit - if not, it uses the Spreadsheet class's processCommand
+	    //and returns the string
 	    while(isRunning) {
 	    	String command = userInput.nextLine();
 	    	if(command.toLowerCase().equals("quit")) {
@@ -26,7 +26,6 @@ public class TextExcel
 	    		System.out.println(userSheet.processCommand(command));
 	    	}
 	    }
-	    
 	    userInput.close();
 	}
 }
